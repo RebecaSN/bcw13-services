@@ -1,1 +1,3 @@
-# bcw13-services
+# BCW13 - Services
+
+Projeto desenvolvido no Bootcamp da SoulCode!
