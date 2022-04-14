@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router'
 const routes: Routes = [
   {
     path: 'funcionario',
-    loadChildren: () => {
+    loadChildren: () => { // Lazy Loading
       return import('./funcionario/funcionario.module')
       .then((m) => {
         return m.FuncionarioModule
