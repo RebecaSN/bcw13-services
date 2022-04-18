@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FuncionarioHttpService } from '../../services/funcionario-http.service';
 
 @Component({
   selector: 'app-listar-funcionario',
@@ -25,13 +26,20 @@ export class ListarFuncionarioComponent implements OnInit {
       nome: 'Tatiana',
       email: 'tati@email.com',
       foto: 'asfasfasf'
-    },
+    }
   ]
 
   columns: string[] = ['id', 'nome', 'email']
 
-  constructor() { }
+  constructor(
+    private funHttpService: FuncionarioHttpService
+  ) { }
 
   ngOnInit(): void {
+    this.funHttpService.getFuncionarios().subscribe(
+      (funcionarios) => {
+        console.log(funcionarios)  
+      }
+    )
   }
 }
