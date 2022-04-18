@@ -27,6 +27,11 @@ public class Funcionario {
 			
 	@Column(nullable = true, length = 100)
 	private String foto;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "funcionario")
+	private List<Servico> servico = new ArrayList<>();
+
 
 	public Integer getIdFuncionario() {
 		return idFuncionario;
