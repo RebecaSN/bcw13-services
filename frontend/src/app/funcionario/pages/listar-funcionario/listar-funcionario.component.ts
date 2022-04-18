@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Funcionario } from '../../models/funcionario';
 import { FuncionarioHttpService } from '../../services/funcionario-http.service';
 
 @Component({
@@ -8,28 +9,9 @@ import { FuncionarioHttpService } from '../../services/funcionario-http.service'
 })
 export class ListarFuncionarioComponent implements OnInit {
 
-  funcionarios = [
-    {
-      id: 1,
-      nome: 'Renato',
-      email: 'renato@email.com',
-      foto: 'asfasfasf'
-    },
-    {
-      id: 1,
-      nome: 'Denise',
-      email: 'denise@email.com',
-      foto: 'asfasfasf'
-    },
-    {
-      id: 1,
-      nome: 'Tatiana',
-      email: 'tati@email.com',
-      foto: 'asfasfasf'
-    }
-  ]
+  funcionarios: Funcionario[] = []
 
-  columns: string[] = ['id', 'nome', 'email']
+  columns: string[] = ['idFuncionario', 'nome', 'email']
 
   constructor(
     private funHttpService: FuncionarioHttpService
@@ -38,7 +20,7 @@ export class ListarFuncionarioComponent implements OnInit {
   ngOnInit(): void {
     this.funHttpService.getFuncionarios().subscribe(
       (funcionarios) => {
-        console.log(funcionarios)  
+        this.funcionarios = funcionarios
       }
     )
   }

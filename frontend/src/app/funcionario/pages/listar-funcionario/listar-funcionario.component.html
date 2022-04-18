@@ -1,8 +1,8 @@
 <div class="flex-container">
   <table mat-table [dataSource]="funcionarios" class="fun-table mat-elevation-z8">
-    <ng-container matColumnDef="id">
+    <ng-container matColumnDef="idFuncionario">
       <th mat-header-cell *matHeaderCellDef>#</th>
-      <td mat-cell *matCellDef="let fun">{{ fun.id }}</td>
+      <td mat-cell *matCellDef="let fun">{{ fun.idFuncionario }}</td>
     </ng-container>
 
     <ng-container matColumnDef="nome">
