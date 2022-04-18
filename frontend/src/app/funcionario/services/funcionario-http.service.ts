@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Funcionario } from '../models/funcionario';
 
 @Injectable()
 export class FuncionarioHttpService {
@@ -9,4 +11,8 @@ export class FuncionarioHttpService {
   constructor(
     private http: HttpClient
   ) {}
+
+  getFuncionarios(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(this.baseURL)
+  }
 }
