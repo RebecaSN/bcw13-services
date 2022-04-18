@@ -11,5 +11,4 @@ public class ServicosApplication {
 		
 		//System.out.println(new BCryptPasswordEncoder().encode("1234"));
 	}
-
 }
