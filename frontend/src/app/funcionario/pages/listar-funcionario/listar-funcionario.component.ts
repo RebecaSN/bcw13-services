@@ -11,7 +11,7 @@ export class ListarFuncionarioComponent implements OnInit {
 
   funcionarios: Funcionario[] = []
 
-  columns: string[] = ['idFuncionario', 'nome', 'email']
+  columns: string[] = ['idFuncionario', 'nome', 'email', 'actions']
 
   constructor(
     private funHttpService: FuncionarioHttpService
