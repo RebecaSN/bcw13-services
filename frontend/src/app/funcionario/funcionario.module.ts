@@ -7,10 +7,11 @@ import { MaterialModule } from '../material/material.module';
 import { ListarFuncionarioComponent } from './pages/listar-funcionario/listar-funcionario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioHttpService } from './services/funcionario-http.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
- declarations: [
+  declarations: [
     NovoFuncionarioComponent,
     ListarFuncionarioComponent 
   ],
@@ -18,7 +19,8 @@ import { FuncionarioHttpService } from './services/funcionario-http.service';
     CommonModule,
     FuncionarioRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     FuncionarioHttpService
