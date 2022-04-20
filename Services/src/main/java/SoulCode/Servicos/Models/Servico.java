@@ -43,7 +43,7 @@ public class Servico {
 	private StatusServico status;
 	
 	
-	
+	// relacionamento de muitos para um
 	@ManyToOne
 	@JoinColumn(name = "idFuncionario")
 	private Funcionario funcionario;

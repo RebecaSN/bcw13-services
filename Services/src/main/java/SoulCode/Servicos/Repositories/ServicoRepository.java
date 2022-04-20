@@ -10,8 +10,21 @@ import org.springframework.data.jpa.repository.Query;
 import SoulCode.Servicos.Models.Funcionario;
 import SoulCode.Servicos.Models.Servico;
 
-public interface ServicoRepository extends JpaRepository<Servico,Integer>{
-	
-	
+public interface ServicoRepository extends JpaRepository<Servico, Integer> {
 
+	// esse método vai trazer todos os serviços de um determinado funcionario
+	// como na tabela de servico, nós temos o atributo funionário, devemos fazer uso
+	// do findBy
+	// o nome do método será findByFuncionario e recebe como parâmetro um optional
+	// de funcionario
+	List<Servico> findByFuncionario(Optional<Funcionario> funcionario);
+
+	List<Servico> findByDataEntrada(Date data);
+
+	
+	
+	@Query(value = "SELECT * FROM servico WHERE data_entrada BETWEEN :data1 AND :data2", nativeQuery = true)
+	List<Servico> findByIntervaloData(Date data1, Date data2);
+	
+	
 }

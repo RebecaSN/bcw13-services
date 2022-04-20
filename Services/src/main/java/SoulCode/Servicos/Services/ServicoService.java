@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import SoulCode.Servicos.Models.Funcionario;
 import SoulCode.Servicos.Models.Servico;
-import SoulCode.Servicos.Models.StatusServico;
 import SoulCode.Servicos.Repositories.FuncionarioRepository;
 import SoulCode.Servicos.Repositories.ServicoRepository;
 
@@ -18,6 +17,9 @@ public class ServicoService {
 	
 	@Autowired
 	ServicoRepository servicoRepository;
+	
+	@Autowired
+	FuncionarioRepository funcionarioRepository;
 	
 	// findAll (método da Spring Data) - busca todos os registros
 	public List<Servico> mostrarTodosServicos(){
@@ -30,6 +32,20 @@ public class ServicoService {
 	}
 	
 	
+	// findByFuncionario - busca todos os serviços de um determinado
+	//funcionario
+	public List<Servico> buscarServicosDoFuncionario(Integer idFuncionario){
+	   Optional<Funcionario> funcionario = funcionarioRepository.findById(idFuncionario);
+	   return servicoRepository.findByFuncionario(funcionario);
+	}
+	
+	public List<Servico> buscarServicoPelaData(Date dataEntrada){
+		return servicoRepository.findByDataEntrada(dataEntrada);
+	}
+	
+	public List<Servico> buscarServicoPorIntervaloData(Date data1, Date data2){
+		return servicoRepository.findByIntervaloData(data1, data2);
+	}
 
 	
 }

@@ -45,5 +45,43 @@ public class ServicoController {
 		
 	}
 	
+	@GetMapping("/servicoFuncionario/{idFuncionario}")
+	public List<Servico> buscarServicosDoFuncionario(@PathVariable Integer idFuncionario){
+		
+		List<Servico> servicos = servicoService.buscarServicosDoFuncionario(idFuncionario);
+		return servicos;
+		
+	}
 	
+		
+	//@RequestParam permite que os dados da requisação venham pelos parâmetros da requisição
+	@GetMapping("/servicoData")
+	public List<Servico> buscarServicoPelaData(@RequestParam("dataEntrada") @DateTimeFormat(
+			iso = DateTimeFormat.ISO.DATE) Date dataEntrada){
+		List<Servico> servicos = servicoService.buscarServicoPelaData(dataEntrada);
+		return servicos;
+	
+	}
+	
+	@GetMapping("/servicoIntervaloData")
+	public List<Servico> buscarServicoPorIntervaloData(@RequestParam("data1") @DateTimeFormat(
+			iso = DateTimeFormat.ISO.DATE) Date data1, @RequestParam("data2") @DateTimeFormat(
+					iso = DateTimeFormat.ISO.DATE) Date data2 ){
+		List<Servico> servicos = servicoService.buscarServicoPorIntervaloData(data1, data2);
+		return servicos;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
